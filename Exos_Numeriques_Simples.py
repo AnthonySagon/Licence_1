@@ -1,13 +1,16 @@
-def prix_ttc(prix : float, taux : float) -> float:
-    """Précondition : prix >= 0
-    Retourne le prix TTC correspondant au prix HT 'prix'
-    avec un taux de TVA 'taux'.
-    """
-    return prix * (1 + taux / 100.0)
+"""Exercice 1.1 : Moyenne de trois nombres
 
-# Jeu de tests
-assert prix_ttc(100.0, 20.0) == 120.0
-assert prix_ttc(100, 0.0) == 100.0
-assert prix_ttc(100, 100.0) == 200.0
-assert prix_ttc(0, 20) == 0.0
-assert prix_ttc(200, 5.5) == 211.0
+Question 1
+Donner une définition de la fonction moyenne_trois_nb qui effectue la moyenne arithmétique
+de trois nombres."""
+
+def moyenne_trois_nb(a : float, b : float, c : float) -> float:
+    """Retourne la moyenne arithmétique de trois nombres a, b et c.
+    """
+    return (a + b + c)/3.0 #Division flottante
+
+#Jeu de tests :
+assert moyenne_trois_nb(3, 6, -3) == 2.0
+assert moyenne_trois_nb(1.5, 2.5, 1.0) == 5.0 / 3.0
+assert moyenne_trois_nb(3, 6, 3) == 4.0
+assert moyenne_trois_nb(1, 1, 1) == 1.0
