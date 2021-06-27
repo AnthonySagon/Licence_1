@@ -130,17 +130,17 @@ assert polynomiale_carre(2,3,4,0) == 4
 assert polynomiale_carre(2,3,4,1) == 9
 
 # Plus efficace (schéma de Hörner) :
-def polynomiale_carre(a : float, b : float, c : float, x : float) -> float:
+def polynomial_carre(a : float, b : float, c : float, x : float) -> float:
     """Retourne la valeur de ax^4 + bx^2 + c
     """
     return (((a*x*x + b) * x*x) + c)
 
 # Jeu de tests
-assert polynomiale_carre(1,1,1,2) == 21
-assert polynomiale_carre(1,1,1,3) == 91
-assert polynomiale_carre(2,0,0,1) == 2
-assert polynomiale_carre(0,3,0,1) == 3
-assert polynomiale_carre(2,3,4,0) == 4
-assert polynomiale_carre(2,3,4,1) == 9
+assert polynomial_carre(1,1,1,2) == 21
+assert polynomial_carre(1,1,1,3) == 91
+assert polynomial_carre(2,0,0,1) == 2
+assert polynomial_carre(0,3,0,1) == 3
+assert polynomial_carre(2,3,4,0) == 4
+assert polynomial_carre(2,3,4,1) == 9
 
 
