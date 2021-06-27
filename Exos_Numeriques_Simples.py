@@ -94,3 +94,53 @@ assert polynomiale(0,3,0,0,1) == 3
 assert polynomiale(0,0,4,0,1) == 4
 assert polynomiale(1,2,3,4,0) == 4
 assert polynomiale(2,3,4,5,1) == 14
+
+# Plus efficace :
+def polynomiale_2(a : float, b : float, c : float, d : float, x : float) -> float:
+    """Retourne la valeur de a*x^3 + b*x^2 + c*x + d
+    """
+    return (((((a*x + b) * x) + c) * x) + d)
+
+# Jeu de tests
+assert polynomiale_2(1,1,1,1,2) == 15
+assert polynomiale_2(1,1,1,1,3) == 40
+assert polynomiale_2(2,0,0,0,1) == 2
+assert polynomiale_2(0,3,0,0,1) == 3
+assert polynomiale_2(0,0,4,0,1) == 4
+assert polynomiale_2(1,2,3,4,0) == 4
+assert polynomiale_2(2,3,4,5,1) == 14
+
+"""Question 2
+Après avoir spécifié le problème, écrire un jeu de tests et donner une définition de la fonction
+polynomiale_carre qui rend la valeur de ax^4 + bx^2 + c."""
+
+def polynomiale_carre(a : float, b : float, c : float, x : float) -> float:
+    """Retourne la valeur de ax^4 + bx^2 + c
+    """
+    return (a*x*x*x*x + b*x*x + c)
+# ou
+# return (a*x**4 + b*x**2 + c)
+
+# Jeu de tests
+assert polynomiale_carre(1,1,1,2) == 21
+assert polynomiale_carre(1,1,1,3) == 91
+assert polynomiale_carre(2,0,0,1) == 2
+assert polynomiale_carre(0,3,0,1) == 3
+assert polynomiale_carre(2,3,4,0) == 4
+assert polynomiale_carre(2,3,4,1) == 9
+
+# Plus efficace (schéma de Hörner) :
+def polynomiale_carre(a : float, b : float, c : float, x : float) -> float:
+    """Retourne la valeur de ax^4 + bx^2 + c
+    """
+    return (((a*x*x + b) * x*x) + c)
+
+# Jeu de tests
+assert polynomiale_carre(1,1,1,2) == 21
+assert polynomiale_carre(1,1,1,3) == 91
+assert polynomiale_carre(2,0,0,1) == 2
+assert polynomiale_carre(0,3,0,1) == 3
+assert polynomiale_carre(2,3,4,0) == 4
+assert polynomiale_carre(2,3,4,1) == 9
+
+
