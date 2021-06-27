@@ -30,3 +30,25 @@ def moyenne_ponderee(a : float, b : float, c : float, pa : float, pb : float, pc
 assert moyenne_ponderee(1, 1, 1, 3, 6, -3) == 1.0
 assert moyenne_ponderee(2, 3, 4, 1, 1, 1) == 3.0
 assert moyenne_ponderee(1, 0, 4, 2, 1, 2) == 2.0
+
+
+"""Exercice 1.2 : Calcul d’un prix TTC 
+
+Question 1
+Ecrire une définition de la fonction prix_ttc qui calcule le prix toutes taxes comprises (TTC)
+à partir d’un prix hors taxe (HT) et d’un taux de TVA exprimé en pourcentage, par exemple
+20.0 pour une TVA de 20%."""
+
+def prix_ttc(prix : float, taux : float) -> float:
+    """Précondition : prix >= 0
+    Retourne le prix TTC correspondant au prix HT 'prix'
+    avec un taux de TVA 'taux'
+    """
+    return prix * (1 + taux / 100.0)
+
+# Jeu de tests
+assert prix_ttc(100.0, 20.0) == 120.0
+assert prix_ttc(100, 0.0) == 100.0
+assert prix_ttc(100, 100.0) == 200.0
+assert prix_ttc(0, 20) == 0.0
+assert prix_ttc(200, 5.5) == 211.0
