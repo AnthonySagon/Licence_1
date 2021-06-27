@@ -143,4 +143,66 @@ assert polynomial_carre(0,3,0,1) == 3
 assert polynomial_carre(2,3,4,0) == 4
 assert polynomial_carre(2,3,4,1) == 9
 
+"""Exercice 1.4 : Aire d’une couronne
+Cet exercice a pour but de calculer l’aire d’une couronne (c’est-à-dire l’aire comprise entre 2
+disques de même centre mais de rayons différents), et de travailler sur la notion d’hypothèse.
+
+Question 1
+Donner une définition ainsi qu’un jeu de tests de la fonction aire_disque qui calcule l’aire πr2
+d’un disque de rayon r
+Remarque : En python, la constante π est déjà définie dans le module math. Pour l’utiliser, il
+faut déclarer l’utilisation de ce module en tête du programme avec l’instruction suivante :
+"""
+import math
+
+def aire_disque(r : float) -> float:
+    """Précondition : r>0
+    Retourne l’aire πr2 d’un disque de rayon r
+    """
+    return math.pi * r*r
+
+# Jeu de tests :
+assert 3.14 < aire_disque(1.0) < 3.15
+assert 12.4 < aire_disque(2.0) < 12.7
+assert 314.15 < aire_disque(10.0) < 314.16
+
+"""Question 2
+Donner une définition ainsi qu’un jeu de tests de la fonction aire_couronne qui, étant donné
+deux nombres r1 et r2, calcule l’aire de la couronne de rayon intérieur r1 et de rayon extérieur
+r2.
+Par hypothèse, on considère que le rayon intérieur est inférieur ou égal au rayon extérieur."""
+
+def aire_couronne(r1 : float, r2 : float) -> float:
+    """Précondition : 0 < r1 <= r2
+    Retourne l’aire de la couronne de rayon intérieur r1 et de rayon extérieur r2.
+    """
+    return math.pi * (r2*r2 - r1*r1)
+
+# Jeu de tests :
+assert 3.14 < aire_couronne(0.0, 1.0) < 3.15
+assert 9.42 < aire_couronne(1.0, 2.0) < 9.45
+assert 311.00 < aire_couronne(1.0, 10.0) < 311.03
+
+"""Exercice 1.5 : Conversion Degrés Fahrenheit-Celsius
+Cet exercice a pour but de définir des fonctions de conversion de températures données en degrés
+Celsius en leur équivalent en degrés Fahrenheit et réciproquement.
+On rappelle que pour mesurer une température, on utilise en France l’échelle des degrés Celsius
+alors que, aux USA par exemple, c’est l’échelle des degrés Fahrenheit qui est utilisée.
+
+Question 1
+Écrire une définition de la fonction fahrenheit_vers_celsius qui convertit une température t
+exprimée en degrés Fahrenheit en son équivalent en degrés Celsius.
+Rappel : la température t en degrés Fahrenheit équivaut à la température (t − 32) ∗ 5/9 en degrés Celsius.
+"""
+
+def fahrenheit_vers_celsius(t : float) -> float:
+    """convertit une température t exprimée en degrés Fahrenheit en son équivalent en degrés Celsius
+    """
+    return (t - 32) * 5/9
+
+# Jeu de tests :
+assert fahrenheit_vers_celsius(212) == 100.0
+assert fahrenheit_vers_celsius(32) == 0.0
+assert fahrenheit_vers_celsius(41) == 5.0
+
 
